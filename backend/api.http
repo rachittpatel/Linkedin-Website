@@ -1,0 +1,63 @@
+POST http://localhost:9080/register HTTP/1.1
+content-Type: application/json
+
+{
+  "username": "new",
+  "password": "securepassword",
+  "email": "newuser@example.com",
+  "name": "new user"  
+}
+
+
+###
+
+POST http://localhost:9080/login HTTP/1.1
+content-Type: application/json
+
+{
+  "email": "newuser@example.com",
+  "password": "securepassword"
+}
+
+###
+
+
+GET http://localhost:9080/get_user_and_profile
+Content-Type: application/json
+
+{
+  "token": "6b656f5234809f5f43049b79a673a70b170fc2e3ece1b8d5597662059c3123f7"
+}
+
+
+###
+
+POST http://localhost:9080/update_profile_data
+Content-Type: application/json
+
+{
+  "token":"6b656f5234809f5f43049b79a673a70b170fc2e3ece1b8d5597662059c3123f7",
+  "bio": "This is a new user bio",
+  "currentPost": "current post",
+  "pastWork": [
+    {
+      "company": "Company A",
+      "position": "Position A",
+     "years": "2"
+    }
+   
+  ],
+  "education": [
+    {
+      "school": "University A",
+      "degree": "Degree A",
+      "fieldOfStudy": "Field A"
+    }
+   
+  ]
+}
+
+
+###
+
+GET http://localhost:9080/get_user_and_profile?token=6b656f5234809f5f43049b79a673a70b170fc2e3ece1b8d5597662059c3123f7

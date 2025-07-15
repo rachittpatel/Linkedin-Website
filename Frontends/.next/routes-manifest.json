@@ -1,0 +1,91 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [
+    {
+      "page": "/view_profile/[username]",
+      "regex": "^/view_profile/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPusername": "nxtPusername"
+      },
+      "namedRegex": "^/view_profile/(?<nxtPusername>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/dashboard",
+      "regex": "^/dashboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/dashboard(?:/)?$"
+    },
+    {
+      "page": "/discover",
+      "regex": "^/discover(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/discover(?:/)?$"
+    },
+    {
+      "page": "/login",
+      "regex": "^/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/login(?:/)?$"
+    },
+    {
+      "page": "/my_connections",
+      "regex": "^/my_connections(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/my_connections(?:/)?$"
+    },
+    {
+      "page": "/profile",
+      "regex": "^/profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/profile(?:/)?$"
+    }
+  ],
+  "dataRoutes": [
+    {
+      "page": "/view_profile/[username]",
+      "routeKeys": {
+        "nxtPusername": "nxtPusername"
+      },
+      "dataRouteRegex": "^/_next/data/W3eugoQdfjGUbphXJxLWl/view_profile/([^/]+?)\\.json$",
+      "namedDataRouteRegex": "^/_next/data/W3eugoQdfjGUbphXJxLWl/view_profile/(?<nxtPusername>[^/]+?)\\.json$"
+    }
+  ],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}

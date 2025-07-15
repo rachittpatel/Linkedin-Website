@@ -1,0 +1,52 @@
+.container {
+  width: 100%;
+  padding: 1.2rem; 
+  box-sizing: border-box; 
+  background-color: #f8f8f8; 
+  border-bottom: 1px solid #eee; 
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+.navBar h1 {
+  margin: 0; 
+  font-size: 1.8rem; 
+  color: #333;
+}
+
+.navBarOptionContainer {
+  display: flex;
+  gap: 1.5rem; 
+  align-items: center;
+}
+
+.navBarOptionContainer p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem; 
+}
+
+.navBarOptionContainer p:hover {
+  color: #007bff;
+}
+
+.buttonJoin {
+  background: #cd8987;
+  border-radius: 0.6em; 
+  padding: 1.2rem; 
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: background-color 0.3s ease;
+}
+
+.buttonJoin:hover {
+  background-color: #be7a79; 
+}

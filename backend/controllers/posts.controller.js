@@ -2,6 +2,7 @@ import User from "../models/user.model.js";
 import Profile from "../models/profile.model.js";
 import Post from "../models/posts.model.js";
 import Comment from "../models/comments.model.js";
+import path from 'path';
 
 
 import bcrypt from "bcrypt";
@@ -16,32 +17,61 @@ export const activeCheck = async (req, res) => {
   
 
 
+// export const createPost = async (req, res) => {
+//   const { token } = req.body;
+
+//   try {
+//     const user = await User.findOne({ token: token });
+
+//     if (!user) {
+//       return res.status(401).json({ message: "User not found" });
+//     }
+
+//     const post = new Post({
+//       userId: user._id,
+//       body: req.body.body,
+//      // media: req.file != undefined ? req.file.filename : "",
+//      media: req.file ? `uploads/${req.file.filename}` : "",
+//       fileType: req.file != undefined ? req.file.mimetype.split("/")[1] : "",
+//     })
+
+//     await post.save();
+
+//     return res.status(200).json({ message: "Post created" });
+
+//   } catch (error) {
+//     return res.status(500).json({ message: error.message });
+//   }
+// }
+
+
+// postController.js
+
+
+
 export const createPost = async (req, res) => {
-  const { token } = req.body;
-
   try {
-    const user = await User.findOne({ token: token });
+    const { body } = req.body;
+    let mediaPath = "";
 
-    if (!user) {
-      return res.status(401).json({ message: "User not found" });
+    if (req.file) {
+      // Save path relative to server root
+      mediaPath = `uploads/${req.file.filename}`;
     }
 
-    const post = new Post({
-      userId: user._id,
-      body: req.body.body,
-     // media: req.file != undefined ? req.file.filename : "",
-     media: req.file ? `uploads/${req.file.filename}` : "",
-      fileType: req.file != undefined ? req.file.mimetype.split("/")[1] : "",
-    })
+    const post = await Post.create({
+      userId: req.user._id,
+      body,
+      media: mediaPath, // always store "uploads/filename.ext"
+    });
 
-    await post.save();
-
-    return res.status(200).json({ message: "Post created" });
-
-  } catch (error) {
-    return res.status(500).json({ message: error.message });
+    res.status(201).json({ post });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong" });
   }
-}
+};
+
 
 
 

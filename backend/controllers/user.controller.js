@@ -201,6 +201,40 @@ export const getUserAndProfile = async (req, res) => {
 };
 
 
+
+// export const getUserAndProfile = async (req, res) => {
+//   try {
+//     console.log("Headers received:", req.headers); // log all headers
+
+//     const authHeader = req.headers.authorization;
+//     console.log("Auth header:", authHeader);
+
+//     const token = authHeader && authHeader.split(" ")[1];
+//     console.log("Extracted token:", token);
+
+//     if (!token) {
+//       return res.status(400).json({ message: "Token is required" });
+//     }
+
+//     const user = await User.findOne({ token });
+//     console.log("User found:", user);
+
+//     if (!user) {
+//       return res.status(404).json({ message: "User not found" });
+//     }
+
+//     const userProfile = await Profile.findOne({ userId: user._id })
+//       .populate("userId", "name email username profilePicture");
+
+//     return res.json(userProfile);
+//   } catch (error) {
+//     console.error("Error in getUserAndProfile:", error);
+//     return res.status(500).json({ message: error.message });
+//   }
+// };
+
+
+
 export const updateProfileData = async (req, res) => {
 
   try {

@@ -23,10 +23,14 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  // profilePicture: {
+  //   type: String,
+  //   default: 'default.jpg'
+  // },
   profilePicture: {
-    type: String,
-    default: 'default.jpg'
-  },
+  type: String,
+  default: 'uploads/default.jpg' // <- match the actual file location
+},
   createdAt: {
     type: Date,
     default: Date.now

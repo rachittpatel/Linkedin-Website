@@ -5,9 +5,6 @@ import { getAllPosts, deletePost, get_comments_by_post, delete_comment_of_user, 
 import express from "express";
 
 
-
-
-
 const router = Router();
 
 
